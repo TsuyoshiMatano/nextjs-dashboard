@@ -1,6 +1,17 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
- 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { Metadata } from 'next'; 
+
+export const metadata: Metadata = {
+  title: {
+    // テンプレート内の %s は、特定のページタイトルに置き換えられます。
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard',
+  },
+  description: 'The official Next.js Learn Dashboard built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="w-full flex-none md:w-64">
